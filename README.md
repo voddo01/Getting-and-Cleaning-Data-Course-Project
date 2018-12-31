@@ -73,5 +73,5 @@ subjectivity <- unite(MergedDF, Subject, Activity, col = "Sub_Activity", sep = "
 by_subactivity <- group_by(subjectivity, Sub_Activity)
 finalDF <- by_subactivity %>% summarise_all(mean)
 
-### Write out Tidy data set as .CSV file
+### Write out Tidy data set as .TXT file
 write.table(x = finalDF, file = "TidyData.txt", quote = FALSE, row.names = FALSE)

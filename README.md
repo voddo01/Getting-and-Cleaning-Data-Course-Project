@@ -2,6 +2,9 @@
 This Contains the script that I used to clean the Human Activity Recognition using Smartphones dataset as found here:
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones#
 
+The final product is written as a .txt file, reading it in will require "header = TRUE" when using read.table. 
+
+Everything below is the code in run_analysis.R with commentary so that you can follow my thought process in each step
 
 ### Load the packages we will be using, as well as downloading the dataset
 packages <- c("data.table", "tidyr", "dplyr")
@@ -71,4 +74,4 @@ by_subactivity <- group_by(subjectivity, Sub_Activity)
 finalDF <- by_subactivity %>% summarise_all(mean)
 
 ### Write out Tidy data set as .CSV file
-write.csv(x = finalDF, file = "TidyData.csv", quote = FALSE, row.names = FALSE)
+write.table(x = finalDF, file = "TidyData.txt", quote = FALSE, row.names = FALSE)
